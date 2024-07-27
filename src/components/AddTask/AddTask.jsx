@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 
 export default function AddTask({onAdd}){
     const [text,setText]=useState('');
-    const [day,setDay]=useState('');
+    const [date,setDate]=useState(new Date());
     const [reminder,setReminder]=useState(false);
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0'); 
+        const year = date.getFullYear();
+        return `${day}-${month}-${year}`;
+      };
 
 
     function onSubmit(e){
@@ -14,10 +22,10 @@ export default function AddTask({onAdd}){
             return
         }
 
-        onAdd({text,day,reminder});
+        onAdd({text,date,reminder});
 
         setText(' ');
-        setDay('');
+        setDate(new Date());
         setReminder(false);
 
     }
@@ -32,9 +40,9 @@ export default function AddTask({onAdd}){
             </div>
 
             <div className="form-control">
-            <label>Day and Time</label>
-            <input type="text" placeholder="Add Day and Time"
-            value={day} onChange={(e)=>setDay(e.target.value)} />
+            <label>Date </label>
+            <input type="date" placeholder="Add Day and Time"
+            value={date} onChange={(e)=>setDate(formatDate(e.target.value))} />
             </div>
 
             <div className="form-control form-control-check">

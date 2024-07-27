@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "text": "Visit Bank",
+      "date": "10 Jul 2024",
+      "reminder": true
+    },
+    {
+      "id": "2",
+      "text": "Go To Hospital",
+      "date": "13 Jul 2024'",
+      "reminder": true
+    },
+    {
+      "id": "0d45",
+      "text": "Go To Movie",
+      "date": "31-07-2024",
+      "reminder": false
+    }
+  ]
+}
