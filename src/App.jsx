@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
+import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc,getDoc } from "firebase/firestore";
 import { db } from './firebase';  // import the initialized Firebase Firestore
 import Header from './components/Header/Header';
 import List from './components/List/List';
@@ -31,7 +31,7 @@ function App() {
   // Fetch Task by id from Firebase
   async function fetchTask(id) {
     const taskRef = doc(db, 'tasks', id);
-    const taskSnap = await getDocs(taskRef);
+    const taskSnap = await getDoc(taskRef);
     return taskSnap.exists() ? taskSnap.data() : null;
   }
 

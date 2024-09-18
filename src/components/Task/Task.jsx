@@ -30,6 +30,3 @@ export default function Task({ task, onDelete, onToggle }) {
         </div>
     );
 }
-
-
-
